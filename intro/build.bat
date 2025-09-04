@@ -1,0 +1,1 @@
+g++ -o intro.exe main.cpp glew32.dll glfw3.dll  -I include  -lOpenGL32 -L %1
