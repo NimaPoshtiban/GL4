@@ -6,7 +6,9 @@
 *.lo
 *.o
 *.obj
-
+*.exp
+*.ilk
+*.pdb
 # Precompiled Headers
 *.gch
 *.pch
@@ -34,6 +36,7 @@
 
 
 # OPENGL builds
+**/third_party*
 **/build.ninja*
 **/.ninja_deps
 **/.ninja_log
