@@ -1,0 +1,16 @@
+CompileFlags:
+  Add:
+    - -I../third_party/glew-2.1.0/include
+    - -I../third_party/glfw-3.4/include
+
+    - -IC:/Program Files (x86)/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.41.34120/include
+
+    # Windows SDK headers (adjust version if different)
+    - -IC:/Program Files (x86)/Windows Kits/10/Include/10.0.22621.0/ucrt
+    - -IC:/Program Files (x86)/Windows Kits/10/Include/10.0.22621.0/shared
+    - -IC:/Program Files (x86)/Windows Kits/10/Include/10.0.22621.0/um
+    - -IC:/Program Files (x86)/Windows Kits/10/Include/10.0.22621.0/winrt
+
+    # Language standard (change to c++17 if you prefer)
+    - -std=c++20
+
