@@ -1,7 +1,7 @@
 #include "GLWindowManager.hpp"
 #include "GLFW/glfw3.h"
 #include "GLinitializer.hpp"
-#include "shader_manger.hpp"
+#include "shader_info.hpp"
 #include <cstdlib>
 GLWindowManager::GLWindowManager() {
   if (GLEW_OK == glewInit()) {
