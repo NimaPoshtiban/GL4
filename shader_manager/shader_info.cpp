@@ -1,22 +1,22 @@
-#include "shader_manger.hpp"
+#include "shader_info.hpp"
 #include <array>
 #include <cstdio>
 
-void ShaderManager::print_shader_log_info(GLuint shader_index) noexcept {
+void ShaderInfo::print_shader_log_info(GLuint shader_index) noexcept {
   int shader_size{};
   std::array<GLchar, 2048> log{};
   glGetShaderInfoLog(shader_index, 2048, &shader_size, &log[0]);
   std::printf("shader info log for GL index %u:\n%s\n", shader_index,
               log.data());
 };
-void ShaderManager::print_programme_log_info(GLuint programme) noexcept {
+void ShaderInfo::print_programme_log_info(GLuint programme) noexcept {
   int shader_size{};
   std::array<GLchar, 2048> log{};
   glGetProgramInfoLog(programme, 2048, &shader_size, &log[0]);
   std::printf("program info log for GL index %u:\n%s", programme, log.data());
 }
 
-void ShaderManager::print_all(GLuint programme) noexcept {
+void ShaderInfo::print_all(GLuint programme) noexcept {
   std::printf("--------------------\nshader programme %i info:\n", programme);
   int params = -1;
   glGetProgramiv(programme, GL_LINK_STATUS, &params);
@@ -49,7 +49,7 @@ void ShaderManager::print_all(GLuint programme) noexcept {
   }
 }
 
-const char *ShaderManager::GL_type_to_string(const GLenum type) noexcept {
+const char *ShaderInfo::GL_type_to_string(const GLenum type) noexcept {
   switch (type) {
   case GL_BOOL:
     return "bool";
@@ -80,14 +80,3 @@ const char *ShaderManager::GL_type_to_string(const GLenum type) noexcept {
   }
   return "other";
 };
-const bool ShaderManager::is_programme_valid(GLuint programme) noexcept {
-  glValidateProgram(programme);
-  int params = -1;
-  glGetProgramiv(programme, GL_VALIDATE_STATUS, &params);
-  std::printf("program %i GL_VALIDATE_STATUS = %i\n", programme, params);
-  if (params != GL_TRUE) {
-    ShaderManager::print_programme_log_info(programme);
-    return false;
-  }
-  return true;
-}
