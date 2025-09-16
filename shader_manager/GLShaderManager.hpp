@@ -13,7 +13,7 @@
 class GLShaderManager {
 public:
   const char *GLTypeToString(const GLenum type) noexcept;
-  const bool validateProgramme(GLuint programme) noexcept;
+  const bool validateProgram(GLuint programme) noexcept;
 
   /*
    * loads and compiles the specified shader

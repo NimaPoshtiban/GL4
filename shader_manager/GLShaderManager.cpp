@@ -7,7 +7,7 @@
 #include <fstream>
 #include <sstream>
 
-const bool GLShaderManager::validateProgramme(GLuint programme) noexcept {
+const bool GLShaderManager::validateProgram(GLuint programme) noexcept {
   glValidateProgram(programme);
   int params = -1;
   glGetProgramiv(programme, GL_VALIDATE_STATUS, &params);
